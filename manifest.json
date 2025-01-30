@@ -1,16 +1,28 @@
 {
   "name": "PR extension",
-  "description": "Creates link to github pr for review issues",
+  "description": "Creates link to github pr for issues that are in state Review or Ready for merge",
   "version": "1.0",
   "manifest_version": 2,
-  "action": { },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
+      "js": ["scripts/board.js"],
       "matches": ["https://youtrack.survey-it.dk/agiles/*" ],
 	  "run_at": "document_end"
+    },
+    {
+      "js": ["scripts/issue.js"],
+      "matches": ["https://youtrack.survey-it.dk/issue*" ],
+	  "run_at": "document_end"
     }
+
   ],
-  "icons": { "16": "images/favicon.png" },
-   "web_accessible_resources": [ "images/*.png" ]
+  "icons": { 
+	"16": "images/favicon.png",
+	"32": "images/favicon.png",
+	"48": "images/favicon.png",
+	"128": "images/favicon.png" 
+  },
+   "web_accessible_resources": [
+   "images/*.png" 
+]
 }

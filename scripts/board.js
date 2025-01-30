@@ -26,7 +26,7 @@ function go() {
 	let footers = document.querySelectorAll(".yt-agile-card_color-9 .yt-agile-card__footer");
 	let footers2 = document.querySelectorAll(".yt-agile-card_color-10 .yt-agile-card__footer");
 	
-	console.log("Found " + issues.length , issues2.length );	
+	//console.log("Found " + issues.length , issues2.length );
 	var total = issues.length + issues2.length;
 	
 	if(total != foundReviews ) {
