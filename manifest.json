@@ -1,0 +1,16 @@
+{
+  "name": "PR extension",
+  "description": "Creates link to github pr for review issues",
+  "version": "1.0",
+  "manifest_version": 2,
+  "action": { },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["https://youtrack.survey-it.dk/agiles/*" ],
+	  "run_at": "document_end"
+    }
+  ],
+  "icons": { "16": "images/favicon.png" },
+   "web_accessible_resources": [ "images/*.png" ]
+}
