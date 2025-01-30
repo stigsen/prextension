@@ -5,12 +5,12 @@
   "manifest_version": 2,
   "content_scripts": [
     {
-      "js": ["scripts/board.js"],
+      "js": ["scripts/common.js", "scripts/board.js"],
       "matches": ["https://youtrack.survey-it.dk/agiles/*" ],
 	  "run_at": "document_end"
     },
     {
-      "js": ["scripts/issue.js"],
+      "js": ["scripts/common.js", "scripts/issue.js"],
       "matches": ["https://youtrack.survey-it.dk/issue*" ],
 	  "run_at": "document_end"
     }
