@@ -20,6 +20,26 @@ function createLink(id) {
 	return node;
 }
 
+function createBranchLink(id) {
+	//console.log("Creating link ", id);
+	const node = document.createElement("a");
+	node.href = "https://github.com/stakeholderit/surveyxact/tree/" + id;
+	node.setAttribute("class", linkName);
+	node.setAttribute("target", "_blank");
+	node.setAttribute("title", "Goto branch");
+	node.setAttribute("style", "margin-left:2px");
+
+	const img = document.createElement("img");
+	img.src = chrome.runtime.getURL("images/favicon.png");
+	img.width=16;
+	img.height=16;
+	
+	node.appendChild( img );
+	
+	return node;
+}
+
+
 function deleteLinks(){
 	//console.log("deleting links");
 	const links = document.getElementsByClassName(linkName);

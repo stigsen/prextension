@@ -1,20 +1,25 @@
-let hasPr = false;
+let prOrBranch = "none";
 
 function go() {
 	let spans = document.querySelectorAll("span[data-user-id]");
 	const id = document.querySelector(".js-issue-id").innerText;
 
-	const pr = spans[2].innerText == "Review" || spans[2].innerText == "Ready for merge";
+	const state=spans[2].innerText;
+	const pr = state == "Review" || state == "Ready for merge";
+	const branch = state == "In Progress";
 
-	if(pr != hasPr ) {
-		if( pr == false ) {
-			console.log("deleting links");
-			deleteLinks();
-		} else {
+	const newPrOrBranch = pr ? "pr" : branch ? "branch" : "none";
+	
+	if(newPrOrBranch != prOrBranch ) {
+		deleteLinks();
+		if( newPrOrBranch == "pr" ) {
 			const node = createLink(id);
 			document.querySelector("h1").appendChild(node);
-		}
-		hasPr = pr;
+			} else {
+			const node = createBranchLink(id);
+			document.querySelector("h1").appendChild(node);
+			}
+		prOrBranch = newPrOrBranch;
 	}
 	window.setTimeout( go, frequency);
 }
