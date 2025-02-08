@@ -13,7 +13,7 @@ function go() {
 	if(newPrOrBranch != prOrBranch ) {
 		deleteLinks();
 		if( newPrOrBranch == "pr" ) {
-			const node = createLink(id);
+			const node = createPrLink(id);
 			document.querySelector("h1").appendChild(node);
 			} else {
 			const node = createBranchLink(id);
